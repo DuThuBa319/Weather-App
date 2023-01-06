@@ -1,4 +1,4 @@
-import 'package:weather_app/blocs/SettingBloc.dart';
+import 'package:weather_app/bloc/SettingBloc.dart';
 import 'package:weather_app/events/SettingEvents.dart';
 import 'package:weather_app/events/WeatherEvents.dart';
 import 'package:weather_app/model/WeatherInfo.dart';
@@ -9,7 +9,7 @@ import 'package:weather_app/states/SettingStates.dart';
 
 import '../states/WeatherStates.dart';
 
-class WeatherBloc extends Bloc<WeatherEvents, WeatherState> {
+class WeatherBloc extends Bloc<WeatherEvents, WeatherStates> {
   // khoi tao WeatherBloc kem initialState sau do kiem tra cac su kien de mapEventToState
   final WeatherRepository weatherRepository;
   WeatherBloc({required this.weatherRepository})

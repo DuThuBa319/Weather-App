@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:weather_app/blocs/SettingBloc.dart';
+import 'package:weather_app/bloc/SettingBloc.dart';
 import 'package:weather_app/model/WeatherInfo.dart';
 import 'package:intl/intl.dart';
 import 'package:weather_app/states/SettingStates.dart';
 
-import '../blocs/ThemeBloc.dart';
+import '../bloc/ThemeBloc.dart';
 import '../states/ThemeStates.dart';
 
 class TemperatureWidget extends StatelessWidget {
@@ -20,7 +20,7 @@ class TemperatureWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Color textColor = BlocProvider.of<ThemeBloc>(context).state.textColor;
-    SettingState _settingState = BlocProvider.of<SettingBloc>(context).state;
+    SettingStates _settingState = BlocProvider.of<SettingBloc>(context).state;
     return DefaultTextStyle(
         style: TextStyle(color: textColor),
         child: Column(

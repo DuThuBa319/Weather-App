@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'dart:ffi';
 import 'package:flutter/material.dart';
-import 'package:weather_app/blocs/SettingBloc.dart';
-import 'package:weather_app/blocs/WeatherBloc.dart';
+import 'package:weather_app/bloc/SettingBloc.dart';
+import 'package:weather_app/bloc/WeatherBloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/events/ThemeEvent.dart';
 import 'package:weather_app/events/WeatherEvents.dart';
@@ -10,17 +10,17 @@ import 'package:weather_app/screens/TemperatureWidget.dart';
 import 'package:weather_app/screens/CitySearchScreen.dart';
 import 'package:weather_app/screens/SettingScreen.dart';
 import 'package:weather_app/states/ThemeStates.dart';
-import '../../blocs/ThemeBloc.dart';
+import '../bloc/ThemeBloc.dart';
 import '../../states/WeatherStates.dart';
 
 class WeatherScreen extends StatefulWidget {
   const WeatherScreen({super.key});
 
   @override
-  State<WeatherScreen> createState() => _WeatherScreenState();
+  State<WeatherScreen> createState() => _WeatherScreenStates();
 }
 
-class _WeatherScreenState extends State<WeatherScreen> {
+class _WeatherScreenStates extends State<WeatherScreen> {
   late Completer<void> _completer;
   var typedCity;
   @override
@@ -74,7 +74,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
           ],
         ),
         body: Center(
-            child: BlocConsumer<WeatherBloc, WeatherState>(
+            child: BlocConsumer<WeatherBloc, WeatherStates>(
           listener: (context, State) {
             if (State is WeatherStateSuccess) {
               var temp1 = State.weatherProfiles.weather[0].main;
@@ -100,7 +100,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
             }
             // Succcess
             else if (weatherState is WeatherStateSuccess) {
-              return BlocBuilder<ThemeBloc, ThemeState>(
+              return BlocBuilder<ThemeBloc, ThemeStates>(
                   builder: (context, themeState) => RefreshIndicator(
                         onRefresh: () {
                           BlocProvider.of<WeatherBloc>(context).add(

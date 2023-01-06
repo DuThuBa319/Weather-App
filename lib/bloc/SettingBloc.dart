@@ -5,14 +5,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../states/SettingStates.dart';
 
-class SettingBloc extends Bloc<SettingEvent, SettingState> {
+class SettingBloc extends Bloc<SettingEvents, SettingStates> {
   SettingBloc()
-      : super(SettingState(
+      : super(SettingStates(
             tempUnit: TemperatureUnit.celsius, urlUnit: 'metric')) {
-    on<SettingEvent>((event, emit) {
+    on<SettingEvents>((event, emit) {
       if (event is SettingEventToggleUnit) {
         emit(
-          SettingState(
+          SettingStates(
               tempUnit: state.tempUnit == TemperatureUnit.celsius
                   ? TemperatureUnit.fahrenheit
                   : TemperatureUnit.celsius,

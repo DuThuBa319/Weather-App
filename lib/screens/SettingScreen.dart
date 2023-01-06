@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:weather_app/blocs/SettingBloc.dart';
-import 'package:weather_app/blocs/WeatherBloc.dart';
+import 'package:weather_app/bloc/SettingBloc.dart';
+import 'package:weather_app/bloc/WeatherBloc.dart';
 import 'package:weather_app/events/SettingEvents.dart';
 import 'package:weather_app/screens/WeatherScreen.dart';
 
@@ -18,7 +18,7 @@ class SettingScreen extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
-          BlocBuilder<SettingBloc, SettingState>(
+          BlocBuilder<SettingBloc, SettingStates>(
             builder: (context, settingState) {
               return ListTile(
                 title: Text('Temperature Unit'),
