@@ -7,7 +7,7 @@ import 'package:weather_app/blocs/ThemeBloc.dart';
 import 'package:weather_app/blocs/WeatherBloc.dart';
 import 'package:weather_app/repository/WeatherRepository.dart';
 
-import 'package:weather_app/src/resource/WeatherScreen.dart';
+import 'package:weather_app/screens/WeatherScreen.dart';
 
 void main() {
   Bloc.observer = WeatherBlocObserver();

@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/blocs/SettingBloc.dart';
 import 'package:weather_app/blocs/WeatherBloc.dart';
 import 'package:weather_app/events/SettingEvents.dart';
-import 'package:weather_app/src/resource/WeatherScreen.dart';
+import 'package:weather_app/screens/WeatherScreen.dart';
 
 import '../../events/WeatherEvents.dart';
 import '../../states/SettingStates.dart';
